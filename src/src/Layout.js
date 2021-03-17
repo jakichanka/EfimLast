@@ -1,73 +1,49 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu, Breadcrumb, Input, Space } from "antd";
 import { A } from "hookrouter";
 import {
     UserOutlined,
     LaptopOutlined,
     NotificationOutlined,
 } from "@ant-design/icons";
-const { Header, Content, Sider } = Layout;
+import { Row, Col, Divider } from 'antd';
+
+const { Search } = Input;
+
+const { Header, Content } = Layout;
 const { SubMenu } = Menu;
+
+const onSearch = value => console.log(value);
+
 const Home = (props) => {
     return (
         <Layout style={{ height: "100vh" }}>
-            <Header className="header">
-                <div className="logo" />
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    defaultSelectedKeys={["2"]}
-                >
-                    <Menu.Item key="1">nav 1</Menu.Item>
-                    <Menu.Item key="2">nav 2</Menu.Item>
-                    <Menu.Item key="3">nav 3</Menu.Item>
-                </Menu>
-            </Header>
+
+
             <Layout>
-                <Sider width={200} className="site-layout-background">
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={["1"]}
-                        defaultOpenKeys={["sub1"]}
-                        style={{ height: "100%", borderRight: 0 }}
-                    >
-                        <SubMenu
-                            key="sub1"
-                            icon={<UserOutlined />}
-                            title="subnav 1"
-                        >
-                            <Menu.Item key="1">
-                                <A href="/">Home</A>
-                            </Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sub2"
-                            icon={<LaptopOutlined />}
-                            title="subnav 2"
-                        >
-                            <Menu.Item key="5">option5</Menu.Item>
-                            <Menu.Item key="6">option6</Menu.Item>
-                            <Menu.Item key="7">option7</Menu.Item>
-                            <Menu.Item key="8">option8</Menu.Item>
-                        </SubMenu>
-                        <SubMenu
-                            key="sub3"
-                            icon={<NotificationOutlined />}
-                            title="subnav 3"
-                        >
-                            <Menu.Item key="9">option9</Menu.Item>
-                            <Menu.Item key="10">option10</Menu.Item>
-                            <Menu.Item key="11">option11</Menu.Item>
-                            <Menu.Item key="12">option12</Menu.Item>
-                        </SubMenu>
-                    </Menu>
-                </Sider>
+              <Header style={{ height: "100px" }}>
+                <Row justify="space-between">
+                  <Col className="gutter-row" span={6}>
+                <div style={{width:"25vh"}}></div>
+                  </Col>
+                  <Col className="gutter-row" span={10} >
+                <div>
+                  <Search
+                    placeholder="input search text"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                    style={{padding:"30px 0"}}
+                  />
+                </div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                <div style={{width:"25vh"}}></div>
+                </Col>
+                </Row>
+              </Header>
                 <Layout style={{ padding: "0 24px 24px" }}>
-                    <Breadcrumb style={{ margin: "16px 0" }}>
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
-                    </Breadcrumb>
                     <Content
                         className="site-layout-background"
                         style={{

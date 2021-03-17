@@ -1,6 +1,6 @@
-import WelcomePage from './pages/WelcomePage'
+import MainPage from './pages/MainPage'
 
 const routes = {
-    "/": () => <WelcomePage />,
+    "/": () => <MainPage />,
 };
 export default routes;
